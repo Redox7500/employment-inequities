@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Employment Inequities | Contact</title>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-title">
+                    <a href="home.html" id="title">Employment Inequities</a>
+                </div>
+                <div class="nav-main">
+                    <a href="home.html">Home</a>
+                    <a href="data.html">Data</a>
+                    <a href="essay.html">Essay</a>
+                    <a href="protest.html">Protest</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="active">Contact</a>
+                </div>
+                <button id="menu-toggle">☰</button>
+            </nav>
+        </header>
+        <main id="main" class="fade-in-up">
+            <div class="content-card">
+                <h2>Email</h2>
+                <p>Feel free to email me at: matthewk2030@headroyce.org</p>
+            </div>
+        </main>
+        <footer>
+            <p>No &copy;, &trade;, or &reg;!</p>
+        </footer>
+        <script>
+            const navMain = document.querySelector(".nav-main");
+            const menuToggle = document.getElementById("menu-toggle");
+
+            menuToggle.addEventListener("click", (event) => {
+                event.stopPropagation();
+                if (!navMain.classList.contains("open"))
+                {
+                    navMain.classList.add("open");
+                }
+            });
+            document.addEventListener("click", (event) => {
+                console.log(event.target)
+                if (event.target != navMain && navMain.classList.contains("open"))
+                {
+                    navMain.classList.remove("open");
+                }
+            });
+        </script>
+    </body>
+</html>

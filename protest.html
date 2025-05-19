@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Employment Inequities | Protest</title>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-title">
+                    <a href="home.html" id="title">Employment Inequities</a>
+                </div>
+                <div class="nav-main">
+                    <a href="home.html">Home</a>
+                    <a href="data.html">Data</a>
+                    <a href="essay.html">Essay</a>
+                    <a href="protest.html" class="active">Protest</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <button id="menu-toggle">☰</button>
+            </nav>
+        </header>
+        <main id="main" class="fade-in-up">
+            <h2>&lpar;Theoretical&rpar; Protest</h2>
+            <div class="content-card">
+                <h2>Description</h2>
+                <p>This is a march against inequities in employment for people of different races and colors. I chose this because marches are very visible to everyone and are easy for everyone to participate in.</p>
+            </div>
+            <div class="content-card">
+                <h2>Setting</h2>
+                <p>Anyone who wants to participate in this march can gather at Golden Gate Park. The speakers will be scheduled between 13:00 and 14:00, and the march will take place on a date to be determined at 14:00 to 18:00.</p>
+            </div>
+            <div class="content-card">
+                <h2>Guests</h2>
+                <p>Speakers: Rebecca Dixon; Charlotte Sweeney; Jordan Gemelas, Jenna Davidson, Case Keltner, and Samantha Ing</p>
+                <p>Musical Guests: San Francisco Pride Band</p>
+            </div>
+            <div class="content-card">
+                <h2>Logistics</h2>
+                <p>The rules will not be anything unusual, just to be respectful to everyone and not break any laws. The weather will likely be cool and slightly overcast. There are several bus and shuttle options to get to the park, such as the free Golden Gate Shuttle.</p>
+            </div>
+        </main>
+        <footer>
+            <p>No &copy;, &trade;, or &reg;!</p>
+        </footer>
+        <script>
+            const navMain = document.querySelector(".nav-main");
+            const menuToggle = document.getElementById("menu-toggle");
+
+            menuToggle.addEventListener("click", (event) => {
+                event.stopPropagation();
+                if (!navMain.classList.contains("open"))
+                {
+                    navMain.classList.add("open");
+                }
+            });
+            document.addEventListener("click", (event) => {
+                console.log(event.target)
+                if (event.target != navMain && navMain.classList.contains("open"))
+                {
+                    navMain.classList.remove("open");
+                }
+            });
+        </script>
+    </body>
+</html>

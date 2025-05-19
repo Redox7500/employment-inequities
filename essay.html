@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Employment Inequities | Essay</title>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-title">
+                    <a href="home.html" id="title">Employment Inequities</a>
+                </div>
+                <div class="nav-main">
+                    <a href="home.html">Home</a>
+                    <a href="data.html">Data</a>
+                    <a href="essay.html" class="active">Essay</a>
+                    <a href="protest.html">Protest</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <button id="menu-toggle">☰</button>
+            </nav>
+        </header>
+        <main id="main" class="fade-in-up">
+            <div class="content-card">
+                <h2>Essay</h2>
+                <p>The issue that I chose to work on for my Social Justice project was inequities in job employment rates across different races/ethnicities and genders. I chose this topic because having a job is one of the most important aspects of a person's life - if you don't have a job, you might not be able to buy everything you need for yourself and your family to even live. The primary goal of this movement is to give equal job opportunities to everyone, no matter what their identity is.</p>
+                <p>This issue relates to the way that I think society should be because I think that no one should have an advantage over anyone else applying for a job. Through this website. I can hopefully help guide people towards this future.</p>
+                <p>I chose to create a website for this project (as you can probably already tell). I already have experience with coding my own websites, so I chose this option. This was where I put most of my effort in the project, so take a look around it!</p>
+            </div>
+        </main>
+        <footer>
+            <p>No &copy;, &trade;, or &reg;!</p>
+        </footer>
+        <script>
+            const navMain = document.querySelector(".nav-main");
+            const menuToggle = document.getElementById("menu-toggle");
+
+            menuToggle.addEventListener("click", (event) => {
+                event.stopPropagation();
+                if (!navMain.classList.contains("open"))
+                {
+                    navMain.classList.add("open");
+                }
+            });
+            document.addEventListener("click", (event) => {
+                console.log(event.target)
+                if (event.target != navMain && navMain.classList.contains("open"))
+                {
+                    navMain.classList.remove("open");
+                }
+            });
+        </script>
+    </body>
+</html>

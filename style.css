@@ -1,0 +1,335 @@
+:root
+{
+    --accent-light-primary:#7080ff;
+    --accent-light-secondary:#a0a0ff;
+    /* --accent-dark-primary:#5060ff;
+    --accent-dark-secondary:#8080ff; */
+    /* --accent-light-primary:#ffaa00;
+    --accent-light-secondary:#ffcc22; */
+    --accent-dark-primary:#ff9900;
+    --accent-dark-secondary:#ffbb11;
+    --background-light-primary:#eeeeee;
+    --background-light-secondary:#dddddd;
+    --background-light-tertiary:#cccccc;
+    --background-dark-primary:#222222;
+    --background-dark-secondary:#303030;
+    --background-dark-tertiary:#3d3d3d;
+    --text-light:#222222;
+    --text-dark:#eeeeee;
+    --shadow-light:rgba(0, 0, 0, 0.05);
+    --shadow-dark:rgba(0, 0, 0, 0.1);
+    --card-shadow-light:0 0 0.6rem 0.2rem var(--shadow-light);
+    --card-shadow-light-emphasis:0 0 0.8rem 0.3rem var(--shadow-light);
+    --card-shadow-dark:0 0 0.4rem 0.4rem var(--shadow-dark);
+    --card-shadow-dark-emphasis:0 0 0.7rem 0.7rem var(--shadow-dark);
+    --accent-primary:var(--accent-light-primary);
+    --accent-secondary:var(--accent-light-secondary);
+    --background-primary:var(--background-light-primary);
+    --background-secondary:var(--background-light-secondary);
+    --background-tertiary:var(--background-light-tertiary);
+    --text-primary:var(--text-light);
+    --link-text-primary:#0088ee;
+    --shadow:var(--shadow-light);
+    --card-shadow:var(--card-shadow-light);
+    --card-shadow-emphasis:var(--card-shadow-light-emphasis);
+    font-size:large;
+}
+
+@media (prefers-color-scheme:dark)
+{
+    :root
+    {
+        --accent-primary:var(--accent-dark-primary);
+        --accent-secondary:var(--accent-dark-secondary);
+        --background-primary:var(--background-dark-primary);
+        --background-secondary:var(--background-dark-secondary);
+        --background-tertiary:var(--background-dark-tertiary);
+        --text-primary:var(--text-dark);
+        --shadow:var(--shadow-dark);
+        --card-shadow:var(--card-shadow-dark);
+        --card-shadow-emphasis:var(--card-shadow-dark-emphasis);
+    }
+}
+
+*
+{
+    transition:all 0.3s ease;
+}
+
+body
+{
+    font-family:"Poppins", sans-serif;
+    background:var(--background-primary);
+    color:var(--text-primary);
+    display:flex;
+    margin:0;
+    flex-direction:column;
+    justify-content:space-between;
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+html
+{
+    padding:0;
+    scroll-behavior:smooth;
+}
+
+header
+{
+    z-index:1;
+    position:sticky;
+    top:0.5rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:2rem;
+    margin:0.5rem;
+    box-sizing:border-box;
+    width:calc(100vw - 1rem);
+    background-color:var(--background-tertiary);
+    border-radius:1.5rem;
+    box-shadow:var(--card-shadow);
+}
+
+#menu-toggle
+{
+    margin-left:calc(100vw - 40rem);
+    display:none;
+    font-size:3rem;
+    color:var(--text-primary);
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+@media (max-width:85rem)
+{
+    :root
+    {
+        font-size:0.825rem;
+    }
+
+    #menu-toggle
+    {
+        display:block;
+    }
+
+    .nav-main
+    {
+        gap:0;
+        border-radius:1rem;
+        display:none;
+        background-color:var(--background-tertiary);
+        padding:0rem;
+        position:absolute;
+        text-align:center;
+        bottom:-27.75rem;
+        left:calc(100vw - 9.15rem);
+        margin:0;
+        width:fit-content;
+        z-index:2;
+    }
+
+    .nav-main.open, .nav-main:hover
+    {
+        display:flex;
+        flex-direction:column;
+    }
+
+    nav a:not(#title)
+    {
+        padding:2rem!important;
+    }
+}
+
+:not(.nav-main) > a
+{
+    color:var(--link-text-primary);
+    text-decoration:none;
+}
+
+:not(.nav-main) > a:hover
+{
+    text-decoration:underline;
+}
+
+nav
+{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+}
+
+.nav-title
+{
+    display:flex;
+    justify-content:center;
+}
+
+.nav-main
+{
+    position:absolute;
+    top:3rem;
+    right:3rem;
+}
+
+nav a
+{
+    position:relative;
+    text-decoration:none;
+    color:var(--text-primary);
+    font-size:1.2rem;
+    padding:0.5rem 1rem;
+}
+
+nav a:not(#title)
+{
+    padding:1.3rem;
+}
+
+nav a::after
+{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:0;
+    height:2px;
+    background-color:var(--accent-primary);
+    transition-duration:0.3s;
+}
+
+nav a:hover::after
+{
+    width:100%;
+}
+
+nav a.active
+{
+    animation:active-menu-item 0.5s ease forwards;
+}
+
+nav:not(:hover) a.active::after
+{
+    width:100%;
+}
+
+#title
+{
+    font-size:2.5rem;
+    font-weight:bold;
+    text-decoration:none;
+    color:var(--text-primary);
+    padding:0.5rem 1rem;
+}
+
+.content-card
+{
+    margin:2rem;
+    padding:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    background-color:var(--background-secondary);
+    box-shadow:var(--card-shadow);
+    border-radius:1rem;
+    padding:1rem 2rem;
+}
+
+.content-card:hover
+{
+    transform:translateY(-5px);
+    box-shadow:var(--card-shadow-emphasis);
+}
+
+#hero-image-container
+{
+    background-image:url("unemployment.jpg");
+    background-size:cover;
+    background-position-x:50%;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    position:absolute;
+    top:0rem;
+    text-align:center;
+}
+
+#scroll-hero
+{
+    font-size:1.5rem;
+    color:var(--background-primary);
+    text-decoration:none;
+    border-radius:1rem;
+    background:var(--accent-primary);
+    padding:1rem 1.2rem;
+    position:relative;
+    bottom:-80%;
+}
+
+main
+{
+    flex:1;
+    display:flexbox;
+    margin:0;
+    padding:2rem;
+    width:100vw;
+    box-sizing:border-box;
+}
+
+main.under-hero
+{
+    margin-top:calc(100vh - 8rem);
+}
+
+footer
+{
+    background:var(--background-primary);
+    text-align:center;
+    margin:0.5rem;
+    padding:0;
+    width:calc(100vw - 1rem);
+    box-sizing:border-box;
+}
+
+.fade-in
+{
+    opacity:0;
+    animation:fade-in 2.5s ease forwards;
+}
+
+.fade-in-up
+{
+    opacity:0;
+    transform:translateY(20px);
+    animation:fade-in-up 1s ease forwards;
+}
+
+@keyframes fade-in
+{
+    to
+    {
+        opacity:1;
+    }
+}
+
+@keyframes fade-in-up
+{
+    to
+    {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes active-menu-item
+{
+    to
+    {
+        color:var(--accent-primary);
+    }
+}
