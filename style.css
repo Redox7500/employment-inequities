@@ -104,11 +104,11 @@ header
     cursor:pointer;
 }
 
-@media (max-width:85rem)
+@media (max-width:1500px)
 {
     :root
     {
-        font-size:0.825rem;
+        font-size:0.8rem;
     }
 
     #menu-toggle
@@ -125,7 +125,7 @@ header
         padding:0rem;
         position:absolute;
         text-align:center;
-        bottom:-27.75rem;
+        transform:translateY(-2.95rem);
         left:calc(100vw - 9.15rem);
         margin:0;
         width:fit-content;
@@ -141,6 +141,22 @@ header
     nav a:not(#title)
     {
         padding:2rem!important;
+    }
+}
+
+@media (max-width:1000px)
+{
+    :root
+    {
+        font-size:0.7rem;
+    }
+}
+
+@media (max-width:500px)
+{
+    :root
+    {
+        font-size:0.6rem;
     }
 }
 
@@ -261,7 +277,7 @@ nav:not(:hover) a.active::after
 
 #scroll-hero
 {
-    font-size:1.5rem;
+    font-size:1.6rem;
     color:var(--background-primary);
     text-decoration:none;
     border-radius:1rem;
@@ -269,6 +285,11 @@ nav:not(:hover) a.active::after
     padding:1rem 1.2rem;
     position:relative;
     bottom:-80%;
+}
+
+#scroll-hero:hover
+{
+    background:var(--accent-secondary);
 }
 
 main
@@ -279,10 +300,9 @@ main
     padding:2rem;
     width:100vw;
     box-sizing:border-box;
-    text-align:center;
 }
 
-main.under-hero
+.under-hero
 {
     margin-top:calc(100vh - 8rem);
 }
@@ -295,6 +315,12 @@ footer
     padding:0;
     width:calc(100vw - 1rem);
     box-sizing:border-box;
+}
+
+h1
+{
+    font-size:1.8rem;
+    text-align:center;
 }
 
 .fade-in
